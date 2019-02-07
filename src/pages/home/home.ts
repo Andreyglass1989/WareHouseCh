@@ -3,15 +3,29 @@ import { NavController } from 'ionic-angular';
 
 import { BackendApiProvider } from '../../providers/backend-api/backend-api';
 
+import { IonicSelectableComponent } from 'ionic-selectable';
+
+
+
+class Customer {
+	public customer_id: number;
+	public external_id: string;
+}
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 // implements OnInit
-	Customers : {}
+
+  	customers: any;
+  	customer: Customer;
+
   constructor(public navCtrl: NavController, private backend: BackendApiProvider) {
   	this.getCUSTOMER()
+
   }
 
  	// ngOnInit(){
@@ -27,9 +41,17 @@ export class HomePage {
   getCUSTOMER(){
   	this.backend.getCustomerAPI().subscribe(data=>{
   		console.log(data)
-  		this.Customers = data
+  		this.customers = data
   	})
-  	return this.Customers
+  	return this.customers
+  }
+
+
+  custChange(event: {
+  	component: IonicSelectableComponent,
+  	value: any
+  }){
+  	console.log("customer:", event.value);
   }
 
 }

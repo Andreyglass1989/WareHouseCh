@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { BackendApiProvider } from '../providers/backend-api/backend-api';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    IonicSelectableModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
