@@ -10,6 +10,8 @@ import { BackendApiProvider } from '../providers/backend-api/backend-api';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicSelectableModule } from 'ionic-selectable';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -30,7 +32,8 @@ import { IonicSelectableModule } from 'ionic-selectable';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BackendApiProvider
+    BackendApiProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

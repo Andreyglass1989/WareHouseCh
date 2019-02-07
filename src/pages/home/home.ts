@@ -5,6 +5,7 @@ import { BackendApiProvider } from '../../providers/backend-api/backend-api';
 
 import { IonicSelectableComponent } from 'ionic-selectable';
 
+import { BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scanner';
 
 
 class Customer {
@@ -22,11 +23,19 @@ export class HomePage {
 
   	customers: any;
   	customer: Customer;
+	options: BarcodeScannerOptions;
+	results: {};
 
-  constructor(public navCtrl: NavController, private backend: BackendApiProvider) {
+  constructor(public navCtrl: NavController, private backend: BackendApiProvider, private barcode:BarcodeScanner) {
   	this.getCUSTOMER()
 
   }
+
+
+    async scanBarcode(){
+  	this.results = await this.barcode.scan();
+  	console.log(this.results)
+}
 
  	// ngOnInit(){
   //     this.backend.getCustomerAPI()
