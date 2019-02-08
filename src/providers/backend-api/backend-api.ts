@@ -14,7 +14,6 @@ const ROOT_ENDPOINT = 'http://swiftaviagroup.com/api/LK/'
 export class BackendApiProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello BackendApiProvider Provider');
   }
 
   getCustomerAPI(){
@@ -22,6 +21,12 @@ export class BackendApiProvider {
   	const endpoint = `${ROOT_ENDPOINT}get_customers/`
   	// console.log("working...")
   	return this.http.get(endpoint, {})
+  }
+
+
+  pushToServer(dataPack:{}){
+  	const endpoint = `${ROOT_ENDPOINT}createPack/`
+  	return this.http.post(endpoint, dataPack, {})
   }
 
 }

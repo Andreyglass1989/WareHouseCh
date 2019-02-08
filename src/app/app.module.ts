@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicSelectableModule } from 'ionic-selectable';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BackendApiProvider,
-    BarcodeScanner
+    BarcodeScanner,
+    SpeechRecognition
   ]
 })
 export class AppModule {}
